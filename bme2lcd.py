@@ -192,6 +192,8 @@ if __name__ == '__main__':
     lcd = ACM1602NI()
     try:
         bmeData = bme.readData()
+        for i in range(3):
+            bmeData[i] = '{:.2f}'.format(float(bmeData[i]))
         lcd.show(bmeData)
     except KeyboardInterrupt:
         pass
